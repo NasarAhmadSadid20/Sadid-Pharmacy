@@ -1,0 +1,15 @@
+services:
+  - type: web
+    name: sadid-pharmacy
+    runtime: docker
+    plan: free
+    healthCheckPath: /api/health
+    envVars:
+      - key: DATABASE_URL
+        sync: false          # آدرس دیتابیس Neon را اینجا وارد کنید
+      - key: JWT_SECRET
+        generateValue: true
+      - key: ADMIN_PASSWORD
+        sync: false          # رمز ادمین اولیه
+      - key: CORS_ORIGIN
+        value: "*"
